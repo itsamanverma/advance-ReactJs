@@ -48,9 +48,10 @@ class App extends Component {
 
     render() {
       const style = {
-        backgroundColor: 'white',
+        backgroundColor: 'green',
+        color:'white',
         font:'inherit',
-        border:'2px solid blue',
+        border:'1px solid blue',
         padding:'5px',
         cursor:'pointer' 
       };
@@ -60,7 +61,7 @@ class App extends Component {
           if(this.state.showPerson){
             persons = (
               <div>
-                {this.state.persons.map( (person, index) => {
+                {this.state.persons.map((person, index) => {
                   return <Person 
                       click={() => this.deletePersonHandler(index)}
                       name ={person.name}
@@ -70,6 +71,7 @@ class App extends Component {
                 })} 
               </div>
             );
+            style.backgroundColor = 'red';
           }
           return (
             <div className="App">
