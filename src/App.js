@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-// import Radium, { StyleRoot } from 'radium';
+import classes from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -30,7 +29,6 @@ class App extends Component {
 
       const persons = [...this.state.persons];
       persons[personIndex] = person;
-
       this.setState ( {
         persons: persons })
     }
@@ -78,22 +76,24 @@ class App extends Component {
 
           // let classes = ['red', 'bold'].join(' ');
 
-          const classes = [];
+          const assignedClasses = [];
           if (this.state.persons.length <= 2) {
-            classes.push('red'); // classes = ['red']
+            assignedClasses.push( classes.red ); // classes = ['red']
           } 
           if (this.state.persons.length <= 1) {
-            classes.push('bold'); // classes = ['red', 'bold']
+            assignedClasses.push( classes.bold ); // classes = ['red', 'bold']
           }
           
+          const REACT_VERSION = React.version;
 
           return (
-              <div className="App">
+              <div className={classes.App}>
                 <h1>hi, I am  create the react App </h1>
-                <p className={classes.join(' ')}> this is actually working...!!</p>
+                <p className={assignedClasses.join(' ')}> this is actually working...!!</p>
                 <button style= {style} 
                 onClick={this.togglePersonHandler} >toggle Person</button>
                 {persons}
+                <div>React version: {REACT_VERSION}</div>
               </div>
               
           );
