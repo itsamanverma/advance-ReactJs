@@ -46,16 +46,9 @@ class App extends Component {
     }
 
     render() {
-      const style = {
-        backgroundColor: 'green',
-        color:'white',
-        font:'inherit',
-        border:'1px solid blue',
-        padding:'5px',
-        cursor:'pointer',
-      };
-
+  
           let persons = null;
+          let btnClass = '';
 
           if(this.state.showPerson){
             persons = (
@@ -67,10 +60,11 @@ class App extends Component {
                       age = {person.age} 
                       key = {person.id}
                       changed = {(event) => this.nameChangeHandler(event, person.id)} />
-                })} 
+                } )} 
               </div>
             );
-            style.backgroundColor = 'red';
+
+            btnClass = classes.Red;
 
           }
 
@@ -90,7 +84,7 @@ class App extends Component {
               <div className={classes.App}>
                 <h1>hi, I am  create the react App </h1>
                 <p className={assignedClasses.join(' ')}> this is actually working...!!</p>
-                <button style= {style} 
+                <button className= {btnClass}
                 onClick={this.togglePersonHandler} >toggle Person</button>
                 {persons}
                 <div>React version: {REACT_VERSION}</div>
