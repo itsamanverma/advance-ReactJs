@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import Cockpit from '../components/Cockpit/Cockpit';
+
 
 class App extends Component {
 
@@ -51,42 +52,24 @@ class App extends Component {
     render() {
   
           let persons = null;
-          let btnClass = '';
 
           if(this.state.showPerson){
-            persons = (
-              <div>
-                <ErrorBoundary>
-                  <Persons
-                    persons ={this.state.persons}
-                    clicked ={this.deletePersonHandler}
-                    changed={this.nameChangeHandler} />
-                </ErrorBoundary> 
-              </div>
-            );
-
-            btnClass = classes.Red;
-
+            persons = <Persons
+                          persons ={this.state.persons}
+                          clicked ={this.deletePersonHandler}
+                          changed={this.nameChangeHandler} />;
           }
 
           // let classes = ['red', 'bold'].join(' ');
-
-          const assignedClasses = [];
-          if (this.state.persons.length <= 2) {
-            assignedClasses.push( classes.red ); // classes = ['red']
-          } 
-          if (this.state.persons.length <= 1) {
-            assignedClasses.push( classes.bold ); // classes = ['red', 'bold']
-          }
           
           const REACT_VERSION = React.version;
 
           return (
               <div className={classes.App}>
-                <h1>hi, I am  create the react App </h1>
-                <p className={assignedClasses.join(' ')}> this is actually working...!!</p>
-                <button className= {btnClass}
-                onClick={this.togglePersonHandler} >toggle Person</button>
+                <Cockpit 
+                showPersons ={this.state.showPersons}
+                persons= {this.state.persons}
+                toggle={this.togglePersonHandler}/>
                 {persons}
                 <div>React version: {REACT_VERSION}</div>
               </div>
