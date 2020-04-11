@@ -50,7 +50,7 @@ class App extends Component {
     }
 
     render() {
-  
+        
           let persons = null;
 
           if(this.state.showPerson){
@@ -68,9 +68,9 @@ class App extends Component {
               <div className={classes.App}>
                 <Cockpit 
                 appTitle ={this.props.title}
-                showPersons ={this.state.showPersons}
+                showPersons ={this.state.showPerson}
                 persons= {this.state.persons}
-                toggle={this.togglePersonHandler}/>
+                clicked={this.togglePersonHandler}/>
                 {persons}
                 <div>React version: {REACT_VERSION}</div>
               </div>
