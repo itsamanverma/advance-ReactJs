@@ -24,7 +24,7 @@ class App extends Component {
       console.log('[App.js inside componentWillMount()]');
     }
 
-    componentDidMount () {
+    componentDidMount() {
       console.log('[App.js] inside componentDidMount()');
     }
     // state = {

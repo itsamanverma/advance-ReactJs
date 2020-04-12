@@ -12,7 +12,7 @@ class Person extends Component{
                 console.log('[Person.js inside componentWillMount()]');
               }
           
-              componentDidMount () {
+              componentDidMount() {
                 console.log('[Person.js] inside componentDidMount()');
               }
             
