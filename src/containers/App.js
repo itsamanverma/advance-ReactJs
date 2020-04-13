@@ -101,6 +101,7 @@ class App extends Component {
 
           return (
               <div className={classes.App}>
+                <button onClick= {() => {this.setState({ showPerson: true}) }}>Show Persons</button>
                 <Cockpit 
                 appTitle ={this.props.title}
                 showPersons ={this.state.showPerson}
