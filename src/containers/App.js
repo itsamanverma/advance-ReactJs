@@ -16,7 +16,7 @@ class App extends Component {
           { id:3, name: "mini" , age:24}
         ],
         otherState: "Some other Value",
-        showPerson: false
+        showPersons: false
       }
     }
 
@@ -80,15 +80,15 @@ class App extends Component {
     }
 
     togglePersonHandler = () => {
-      const doesShow = this.state.showPerson;
-      this.setState({showPerson: !doesShow});
+      const doesShow = this.state.showPersons;
+      this.setState({showPersons: !doesShow});
     }
 
     render() {
           console.log('[App.js] inside render()');
           let persons = null;
 
-          if(this.state.showPerson){
+          if(this.state.showPersons){
             persons = <Persons
                           persons ={this.state.persons}
                           clicked ={this.deletePersonHandler}
@@ -101,10 +101,10 @@ class App extends Component {
 
           return (
               <div className={classes.App}>
-                <button onClick= {() => {this.setState({ showPerson: true})  }}>Show Persons</button>
+                <button onClick= {() => {this.setState({ showPersons: true})  }}>Show Persons</button>
                 <Cockpit 
                 appTitle ={this.props.title}
-                showPersons ={this.state.showPerson}
+                showPersons ={this.state.showPersons}
                 persons= {this.state.persons}
                 clicked={this.togglePersonHandler}/>
                 {persons}
