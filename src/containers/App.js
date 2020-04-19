@@ -109,7 +109,9 @@ class App extends PureComponent {
                 persons= {this.state.persons}
                 clicked={this.togglePersonHandler}/>
                 {persons}
-                <div>React version: {REACT_VERSION}</div>
+                  <div>
+                    React version: {REACT_VERSION}
+                  </div>
               </div>
               
           );
