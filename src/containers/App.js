@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import classes from './App.css';
-import WithClass from '../hoc/WithClass';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import Wrapper from '../hoc/Wrapper';
+import withClass from '../hoc/withClass';
 
 
 class App extends PureComponent {
@@ -102,7 +103,7 @@ class App extends PureComponent {
           const REACT_VERSION = React.version;
 
           return (
-              <WithClass classes={classes.App}>
+              <Wrapper>
                 <button onClick= {() => {this.setState({ showPersons: true})  }}>Show Persons</button>
                 <Cockpit 
                 appTitle ={this.props.title}
@@ -113,7 +114,7 @@ class App extends PureComponent {
                   <div>
                     React version: {REACT_VERSION}
                   </div>
-              </WithClass>
+              </Wrapper>
               
           );
 
@@ -122,5 +123,5 @@ class App extends PureComponent {
       }
     }
 
-    export default App;
+    export default withClass(App, classes.App);
  
